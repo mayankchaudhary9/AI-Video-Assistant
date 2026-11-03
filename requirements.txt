@@ -1,0 +1,49 @@
+
+# =====================================
+# Frontend
+# =====================================
+streamlit
+
+# =====================================
+# Audio Processing & Transcription
+# =====================================
+openai-whisper
+torch
+ffmpeg-python
+pydub
+
+# =====================================
+# YouTube Audio Download
+# =====================================
+yt-dlp
+
+# =====================================
+# Hindi to English Translation
+# =====================================
+deep-translator
+
+# =====================================
+# LangChain & Mistral LLM
+# =====================================
+langchain
+langchain-core
+langchain-text-splitters
+langchain-mistralai
+
+# =====================================
+# RAG & Vector Database
+# =====================================
+chromadb
+langchain-chroma
+langchain-huggingface
+sentence-transformers
+
+# =====================================
+# Environment Configuration
+# =====================================
+python-dotenv
+
+# =====================================
+# PDF Export
+# =====================================
+reportlab
