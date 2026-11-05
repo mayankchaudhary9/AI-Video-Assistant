@@ -13,7 +13,7 @@ def run_pipeline(source: str, language: str = "english") ->dict:
 
     chunks = process_input(source)
 
-    transcript = transcribe_all(chunks)
+    transcript = transcribe_all(chunks,language)
     print(f"raw transcription (first 300 characters ) {transcript[:300]}")
 
     title = generate_title(transcript)
@@ -33,7 +33,7 @@ def run_pipeline(source: str, language: str = "english") ->dict:
         "action_items": action_items,
         "key_decisions": decisions,
         "open_questions": questions,
-        "rag_chain": rag_chain
+        "rag_chain": rag_chain,
     }
 
 if __name__ == "__main__":

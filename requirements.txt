@@ -3,6 +3,7 @@
 # Frontend
 # =====================================
 streamlit
+streamlit-extras
 
 # =====================================
 # Audio Processing & Transcription

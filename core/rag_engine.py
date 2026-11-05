@@ -7,9 +7,9 @@ from core.vector_store import build_vector_store, load_vector_store, get_retriev
 
 def get_llm():
     return ChatMistralAI(
-        model= "mistal-small-latest",
-        mistral_api_key = os.getenv("MISTRAL_API_KEY"),
-        temperature = 0.3
+        model="mistral-small-latest",
+        mistral_api_key=os.getenv("MISTRAL_API_KEY"),
+        temperature=0.3,
     )
 
 def format_docs(docs):
@@ -26,14 +26,15 @@ def build_rag_chain(transcript: str):
     prompt = ChatPromptTemplate.from_messages([
         (
             "system",
-            """You are an expert meeting assistant. Answer the user's question bases ONLY on the meeting transcript context provided below.
+            """You are an expert meeting assistant. Answer the user's question based ONLY on the meeting transcript context provided below.
             If the answer is not found in the context, say: 
             "I could not find this information in the meeting transcript."
             Always be concise and precise. If quoting someone, mention it clearly.
-            Context from meeting transcript:{context} """,
+            Context from meeting transcript: {context}""",
         ),
         ("human", "{question}"),
-    ])
+    ]
+    )
 
     #full LCEL Rag pipeline
 
@@ -52,14 +53,14 @@ def load_rag_chain():
     retriever = get_retriever()
 
     llm = get_llm()
-    prompt = ([
+    prompt = ChatPromptTemplate.from_messages([
         (
             "system",
-            """You are an expert meeting assistant. Answer the user's question bases ONLY on the meeting transcript context provided below.
+            """You are an expert meeting assistant. Answer the user's question based ONLY on the meeting transcript context provided below.
             If the answer is not found in the context, say: 
             "I could not find this information in the meeting transcript."
             Always be concise and precise. If quoting someone, mention it clearly.
-            Context from meeting transcript:{context} """,
+            Context from meeting transcript:{context}""",
         ),
         ("human", "{question}"),
     ])

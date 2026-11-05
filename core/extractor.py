@@ -14,7 +14,7 @@ def get_llm():
 def build_chain(system_prompt : str):
     llm = get_llm()
     return (
-        RunnableLambda() | RunnableLambda(lambda x : {"text": x}) | ChatPromptTemplate.from_messages([
+        RunnablePassthrough() | RunnableLambda(lambda x : {"text" : x}) |ChatPromptTemplate.from_messages([
         ("system", system_prompt),
         ("human", "{text}"),
     ]) | llm | StrOutputParser()
@@ -23,11 +23,11 @@ def build_chain(system_prompt : str):
 def extract_action_items(transcript: str) -> str:
     chain = build_chain(
         "You are an expert meeting analyst. From the meeting transcript, "
-        "extract all actions items. For each provide:\n"
+        "extract all action items. For each provide:\n"
         "- Task description\n"
         "- Owner (who is responsible)\n"
         "- Deadline (if mentioned, else write 'Not specified')\n\n"
-        "Format as a number list. If none found say 'No action items found.'"
+        "Format as a numbered list. If none found say 'No action items found.'"
     )
 
     return chain.invoke(transcript)
