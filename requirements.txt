@@ -29,6 +29,7 @@ langchain
 langchain-core
 langchain-text-splitters
 langchain-mistralai
+langchain-community
 
 # =====================================
 # RAG & Vector Database
