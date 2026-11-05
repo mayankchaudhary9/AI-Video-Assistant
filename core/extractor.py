@@ -46,6 +46,6 @@ def extract_questions(transcript: str) -> str:
         "From the meeting transcript, extract all unresolved questions "
         "or topics needing follow-up. Format as a numbered list. "
         "If none found say 'No open questions found.'"
-    )
+    ) 
 
     return chain.invoke(transcript)
