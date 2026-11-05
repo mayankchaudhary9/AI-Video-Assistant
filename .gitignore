@@ -1,1 +1,17 @@
 .env
+
+
+# Audio files
+*.wav
+*.mp3
+*.mp4
+
+# Downloaded files
+downloades/
+downloads/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
